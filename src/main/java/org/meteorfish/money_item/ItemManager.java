@@ -1,0 +1,57 @@
+package org.meteorfish.money_item;
+
+import org.bukkit.Material;
+import org.bukkit.ChatColor;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.Arrays;
+
+public class ItemManager {
+
+    private static ItemStack buildItem(Material material, int amount, String displayName, String... lore) {
+        ItemStack stack = new ItemStack(material, amount);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(displayName);
+        meta.setLore(Arrays.asList(lore));
+        stack.setItemMeta(meta);
+        return stack;
+    }
+
+    public static final ItemStack _100_K = buildItem(
+            Material.DIAMOND,
+            1,
+            ChatColor.AQUA +"100,000 골드",
+            "100,000 골드 가치의 화폐",
+            ChatColor.LIGHT_PURPLE + "우린 부자가 될 거야!");
+
+    public static final ItemStack _50_K = buildItem(
+            Material.GOLD_INGOT,
+            1,
+            ChatColor.GOLD +"50,000 골드",
+            "50,000 골드 가치의 화폐",
+            ChatColor.LIGHT_PURPLE + "돈돈돈돈");
+
+    public static final ItemStack _10_K = buildItem(
+            Material.GOLD_INGOT,
+            1,
+            ChatColor.GOLD +"10,000 골드",
+            "10,000 골드 가치의 화폐",
+            ChatColor.LIGHT_PURPLE + "만 골드의 행복");
+
+    public static final ItemStack _5_K = buildItem(
+            Material.GOLD_INGOT,
+            1,
+            ChatColor.GOLD +"5,000 골드",
+            "5,000 골드 가치의 화폐",
+            ChatColor.LIGHT_PURPLE + "?????");
+
+    public static final ItemStack _1_K = buildItem(
+            Material.GOLD_INGOT,
+            1,
+            ChatColor.GOLD +"1,000 골드",
+            "1,000 골드 가치의 화폐",
+            ChatColor.LIGHT_PURPLE + "?");
+
+
+}
