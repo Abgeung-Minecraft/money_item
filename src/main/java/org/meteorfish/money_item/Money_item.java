@@ -12,6 +12,8 @@ public final class Money_item extends JavaPlugin {
         // Plugin startup logic
         getLogger().info("money item 플러그인 활성화");
         getServer().getPluginCommand("tdeposit").setExecutor(new Deposit());
+        getServer().getPluginCommand("tdeposit").setTabCompleter(new Deposit());
+
         if (!setupEconomy()) {
             getLogger().severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);

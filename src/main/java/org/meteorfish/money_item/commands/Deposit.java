@@ -5,9 +5,11 @@ import net.milkbowl.vault.economy.Economy;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.meteorfish.money_item.ItemManager;
 
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import java.util.Optional;
 
 import static org.meteorfish.money_item.util.VaultUtils.getEconomy;
 
-public class Deposit implements CommandExecutor {
+public class Deposit implements CommandExecutor, TabCompleter {
 
     private static final List<Integer> CURRENCY_UNIT = new ArrayList<>(Arrays.asList(1000, 5000, 10000, 50000, 100000));
     private static Economy econ;
@@ -93,6 +95,15 @@ public class Deposit implements CommandExecutor {
         } catch (Exception e) {
             player.sendMessage("명령어를 확인해주세요!");
         }
+    }
 
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] args) {
+        if (args.length == 1) {
+            return Arrays.asList("100000", "50000", "10000", "5000", "1000"); // Provide choices for the first parameter
+        } else if (args.length == 2) {
+            return Arrays.asList("1", "2", "5", "10");
+        }
+        return List.of();
     }
 }
