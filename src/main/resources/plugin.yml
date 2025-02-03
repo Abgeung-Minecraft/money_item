@@ -2,3 +2,8 @@ name: money_item
 version: '1.0-SNAPSHOT'
 main: org.meteorfish.money_item.Money_item
 api-version: '1.21'
+commands:
+  tdeposit:
+    description: 돈을 인출합니다
+    aliases:
+      - 출금

@@ -6,11 +6,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.meteorfish.money_item.ItemManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.meteorfish.money_item.util.VaultUtils.getEconomy;
 
@@ -36,6 +39,8 @@ public class Deposit implements CommandExecutor {
             isValidMoneyAmount(totalAmount, userBalance);
 
             deposit(player, totalAmount);
+            getItem(player, unit, count);
+
             return false;
         } catch(Exception e) {
             sender.sendMessage(e.getMessage());
@@ -69,5 +74,25 @@ public class Deposit implements CommandExecutor {
         } else {
             player.sendMessage(String.format("인출 과정에서 에러가 발생했습니다: %s", r.errorMessage));
         }
+    }
+
+    private void getItem(Player player, int unit, int count){
+        ItemStack targetItem = switch (unit) {
+            case 100000 -> ItemManager._100_K;
+            case 50000 -> ItemManager._50_K;
+            case 10000 -> ItemManager._10_K;
+            case 5000 -> ItemManager._5_K;
+            case 1000 -> ItemManager._1_K;
+            default -> null;
+        };
+
+        try {
+            for(int i=0;i<count;i++){
+                player.getInventory().addItem(targetItem);
+            }
+        } catch (Exception e) {
+            player.sendMessage("명령어를 확인해주세요!");
+        }
+
     }
 }
