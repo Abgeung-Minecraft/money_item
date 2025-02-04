@@ -31,35 +31,33 @@ public class ItemManager {
             1,
             ChatColor.AQUA +"100,000 골드",
             "우린 부자가 될 거야!",
-            ChatColor.LIGHT_PURPLE + WITHDRAW_DESCRIPTION);
+            ChatColor.YELLOW + WITHDRAW_DESCRIPTION);
 
     public static final ItemStack _50_K = buildItem(
             Material.GOLD_INGOT,
             1,
             ChatColor.GOLD +"50,000 골드",
             "50,000 골드 가치의 화폐",
-            ChatColor.LIGHT_PURPLE + WITHDRAW_DESCRIPTION);
+            ChatColor.YELLOW + WITHDRAW_DESCRIPTION);
 
     public static final ItemStack _10_K = buildItem(
             Material.GOLD_INGOT,
             1,
-            ChatColor.GOLD +"10,000 골드",
+            ChatColor.GREEN +"10,000 골드",
             "10,000 골드 가치의 화폐",
-            ChatColor.LIGHT_PURPLE + WITHDRAW_DESCRIPTION);
+            ChatColor.YELLOW + WITHDRAW_DESCRIPTION);
 
     public static final ItemStack _5_K = buildItem(
             Material.GOLD_INGOT,
             1,
-            ChatColor.GOLD +"5,000 골드",
+            ChatColor.RED +"5,000 골드",
             "5,000 골드 가치의 화폐",
-            ChatColor.LIGHT_PURPLE + WITHDRAW_DESCRIPTION);
+            ChatColor.YELLOW + WITHDRAW_DESCRIPTION);
 
     public static final ItemStack _1_K = buildItem(
             Material.GOLD_INGOT,
             1,
-            ChatColor.GOLD +"1,000 골드",
+            ChatColor.BLUE +"1,000 골드",
             "1,000 골드 가치의 화폐",
-            ChatColor.LIGHT_PURPLE + WITHDRAW_DESCRIPTION);
-
-
+            ChatColor.YELLOW + WITHDRAW_DESCRIPTION);
 }
