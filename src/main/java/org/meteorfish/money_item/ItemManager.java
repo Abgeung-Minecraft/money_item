@@ -9,6 +9,12 @@ import java.util.Arrays;
 
 public class ItemManager {
 
+    public final static int _100_K_AMOUNT = 100000;
+    public final static int _50_K_AMOUNT = 50000;
+    public final static int _10_K_AMOUNT = 10000;
+    public final static int _5_K_AMOUNT = 5000;
+    public final static int _1_K_AMOUNT = 1000;
+
     private static ItemStack buildItem(Material material, int amount, String displayName, String... lore) {
         ItemStack stack = new ItemStack(material, amount);
         ItemMeta meta = stack.getItemMeta();
