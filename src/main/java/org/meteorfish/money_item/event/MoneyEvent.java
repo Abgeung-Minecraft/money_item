@@ -25,7 +25,6 @@ public class MoneyEvent implements Listener {
         if(isValidAction(player, event)) {
             ItemStack item = player.getItemInHand();
             identifyItem(item, player);
-            removeCurrentHand(player);
         }
     }
 
@@ -45,6 +44,7 @@ public class MoneyEvent implements Listener {
         } else if (item.isSimilar(_1_K)) {
             withdraw(_1_K_AMOUNT, player);
         }
+        removeCurrentHand(player);
     }
 
     private void withdraw(int amount, Player player) {
