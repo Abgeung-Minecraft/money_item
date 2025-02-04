@@ -2,6 +2,8 @@ package org.meteorfish.money_item;
 
 import org.bukkit.Material;
 import org.bukkit.ChatColor;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -19,9 +21,11 @@ public class ItemManager {
 
     private static ItemStack buildItem(Material material, int amount, String displayName, String... lore) {
         ItemStack stack = new ItemStack(material, amount);
+        stack.addUnsafeEnchantment(Enchantment.LURE, 1);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(displayName);
         meta.setLore(Arrays.asList(lore));
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         stack.setItemMeta(meta);
         return stack;
     }
