@@ -22,23 +22,27 @@ public class MoneyEvent implements Listener {
     public void rightClickItem(PlayerInteractEvent event) {
         econ = getEconomy();
         Player player = event.getPlayer();
-        if(!player.isSneaking()) return;
-        if(event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK)    return;
-        ItemStack item = player.getItemInHand();
-        identifyItem(item, player);
-        removeCurrentHand(player);
+        if(isValidAction(player, event)) {
+            ItemStack item = player.getItemInHand();
+            identifyItem(item, player);
+            removeCurrentHand(player);
+        }
+    }
+
+    private boolean isValidAction(Player player, PlayerInteractEvent event) {
+        return event.getAction() == Action.RIGHT_CLICK_AIR && player.isSneaking();
     }
 
     private void identifyItem(ItemStack item, Player player) {
-        if(item == ItemManager._100_K) {
+        if(item.isSimilar(_100_K)) {
             withdraw(_100_K_AMOUNT, player);
-        } else if (item == ItemManager._50_K) {
+        } else if (item.isSimilar(_50_K)) {
             withdraw(_50_K_AMOUNT, player);
-        } else if (item == ItemManager._10_K) {
+        } else if (item.isSimilar(_10_K)) {
             withdraw(_10_K_AMOUNT, player);
-        } else if (item == ItemManager._5_K) {
+        } else if (item.isSimilar(_5_K)) {
             withdraw(_5_K_AMOUNT, player);
-        } else if (item == ItemManager._1_K) {
+        } else if (item.isSimilar(_1_K)) {
             withdraw(_1_K_AMOUNT, player);
         }
     }
