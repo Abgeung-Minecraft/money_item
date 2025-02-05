@@ -44,7 +44,6 @@ public class MoneyEvent implements Listener {
         } else if (item.isSimilar(_1_K)) {
             withdraw(_1_K_AMOUNT, player);
         }
-        removeCurrentHand(player);
     }
 
     private void withdraw(int amount, Player player) {
@@ -54,6 +53,7 @@ public class MoneyEvent implements Listener {
         } else {
             player.sendMessage(String.format("입금 과정에서 에러가 발생했습니다: %s", r.errorMessage));
         }
+        removeCurrentHand(player);
     }
 
     private void removeCurrentHand(Player player) {
